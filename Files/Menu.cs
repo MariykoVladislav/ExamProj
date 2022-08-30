@@ -36,7 +36,8 @@ namespace Files
                 $"attrib - Отображает атрибуты файлов.\n" +
                 $"ren - Переименование одного или нескольких файлов.\n" +
                 $"copy con - Создания текстового файла.\n" +
-                $"move - Перемещения файлов.");
+                $"move - Перемещения файлов.\n" +
+                $"where - Поиск файлов.");
         }
         public void ShowHelpCd()
         {
@@ -93,6 +94,12 @@ namespace Files
         {
             Console.WriteLine("Перемещения файлов.\n" +
                 @"move [имя файла] [путь]\имя файла");
+        }
+        public void ShowHelpWhere()
+        {
+            Console.WriteLine($"Поиск файлов.\n" +
+                $"where [путь]:*.* - найти все файлы в директории\n" +
+                $"where [путь] *.[тип файла] - найти все файлы определенного типа.");
         }
         public void startApp()
         {
@@ -208,6 +215,9 @@ namespace Files
                                 case "attrib":
                                     ShowHelpAttrib();
                                     break;
+                                case "where":
+                                    ShowHelpWhere();
+                                    break;
                                 case "CD":
                                     ShowHelpCd();
                                     break;
@@ -240,6 +250,9 @@ namespace Files
                                     break;
                                 case "ATTRIB":
                                     ShowHelpAttrib();
+                                    break;
+                                case "WHERE":
+                                    ShowHelpWhere();
                                     break;
                                 default:
                                     Console.WriteLine($"Команда '{str[1]}' не поддерживается.");
